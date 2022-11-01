@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message Detections {
+  uint32 car = 1;
+  uint32 person = 2;
+  uint32 cat = 3;
+  uint32 dog = 4;
+}
+
+message Detected {
+  string host = 1;
+  int64 at = 2;
+  Detections detections = 3;
+}

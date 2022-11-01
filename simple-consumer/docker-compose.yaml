@@ -1,0 +1,16 @@
+version: '3.7'
+
+networks:
+  main:
+    name: kafka-protobuf-main
+    external: true
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/opt/project
+    environment:
+      KAFKA_SERVER: "kafka1:9092"
+    networks:
+      - main

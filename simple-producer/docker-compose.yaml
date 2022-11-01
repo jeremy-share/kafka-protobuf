@@ -1,0 +1,18 @@
+version: '3.7'
+
+networks:
+  main:
+    name: kafka-protobuf-main
+    external: true
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./:/opt/project
+    ports:
+      - "127.0.0.1:80:80"
+    environment:
+      KAFKA_SERVER: "kafka1:9092"
+    networks:
+      - main
